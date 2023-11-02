@@ -1,12 +1,9 @@
 'use client'
-
 import { useState } from "react";
-
-function page() {
+export default function Page(){
   const [valuesData, setValues] = useState<any>()
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-
     const lines = valuesData.split(',');
     const cleanArray = lines.map((line:any) => [line])
     console.log("valuesData", cleanArray)
@@ -55,5 +52,3 @@ function page() {
     </form>
   )
 }
-
-export default page
