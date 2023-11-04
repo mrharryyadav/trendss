@@ -1,11 +1,15 @@
 'use client'
 import { useState } from "react";
+
+import {trendsData} from "../data"
+
 export default function Page(){
   const [valuesData, setValues] = useState<any>()
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     const lines = valuesData.split(',');
-    const cleanArray = lines.map((line:any) => [line])
+    
+    const cleanArray = trendsData.map((item:any) => [item.timestamp, item.timeAgo, JSON.stringify(item.trends)])
     console.log("valuesData", cleanArray)
     const values = cleanArray
     let formData = { values }
